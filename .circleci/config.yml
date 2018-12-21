@@ -88,7 +88,11 @@ workflows:
   version: 2
   test_and_build:
     jobs:
-      - install
+      - install:
+          filters:
+            branches:
+              only:
+                - master
       - test:
           requires:
             - install
